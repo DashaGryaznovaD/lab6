@@ -175,6 +175,19 @@ public class Commands {
         String s = "Элемент успешно добавлен в коллецию.";
         return s;
     }*/
+    
+     public static String show(){
+      String show;
+      if (collection.size() != 0) {
+          StringBuilder stringBuilder = new StringBuilder();
+          stringBuilder.append("[");
+          collection.stream().forEach((p) -> stringBuilder.append(p.toString()+","));
+          stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(","));
+          return String.valueOf(stringBuilder.append("]"));
+      }
+      else show = "Коллекция пуста";
+      return show;
+  }
     public static String insertElement(Person personon) throws SQLException {
         PreparedStatement preparedStatement = null;
         Connection connection = null;
